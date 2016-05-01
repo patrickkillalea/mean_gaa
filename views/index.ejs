@@ -48,7 +48,7 @@
         </div>
         <div class="container">
             <div ng-repeat="post in posts" align="center">
-                <a href="#/posts/{{$index}}">
+                <a href="#/posts/{{post._id}}">
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="articleContainer">
                             <img src="{{post.image}}" height="200px" width="100%">
@@ -162,10 +162,15 @@
             <p>{{post.date}}</p>
             <p>{{post.content}}</p>
         </div>
+        <span style="float: right;" ng-click="deletePost(post)">
+                <a href="#/home"><i class="icon-home"></i> Delete</a>
+            </span>
     </script>
 </body>
 
 </html>
+
+<!-- Front Page Blog Style -->
 <style>
 .transparent {
     background: rgba(0, 0, 0, 0.6);
@@ -208,9 +213,11 @@
     font-size: 16px;
 }
 </style>
+<!-- Front Page Blog Style -->
+<!-- Navbar Style -->
 <style>
-@import url('http://fonts.googleapis.com/css?family=Merriweather+Sans:700,300');
-@import url('http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css');
+@import url('https://fonts.googleapis.com/css?family=Merriweather+Sans:700,300');
+@import url('https://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css');
 * {
     padding: 0px;
     margin: 0px;
@@ -239,7 +246,7 @@ li {
     padding: 5px;
     border: 1px solid transparent;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 18px;
     color: #fff;
     -webkit-transition: all 0.2s ease-in-out;
     -moz-transition: all 0.2s ease-in-out;
@@ -265,3 +272,4 @@ a:visited {
     color: black;
 }
 </style>
+<!-- Navbar Style -->
