@@ -59,7 +59,8 @@
                                 {{post.title}}
                             </div>
                             <div class="articleContent">
-                                <p>{{post.content}}</p>
+                                <!-- <pre>{{post.content}}</pre> -->
+                                <p class="wrap">{{post.content}}</p>
                             </div>
                         </div>
                     </div>
@@ -211,6 +212,17 @@
     bottom: 0px;
     position: absolute;
     font-size: 16px;
+}
+
+p.wrap {
+    display: -webkit-box;
+    height: $font-size*$line-height*$lines-to-show;
+    margin: 0 auto;
+    font-size: 14px;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 </style>
 <!-- Front Page Blog Style -->
