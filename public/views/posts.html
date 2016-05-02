@@ -1,0 +1,13 @@
+<div class="jumbotron jumbotron-fluid visible" style="background: url('{{post.image}}') no-repeat center center fixed; height:600px; background-size: cover;">
+    <div data-ng-include="'/views/topnav.html'"></div>
+</div>
+<div class="container">
+    <div class="page-header">
+        <h3>{{post.title}}</h3>
+        <p>{{post.date}}</p>
+    </div>
+    <p>{{post.content}}</p>
+    <span data-ng-click="deletePost(post)">
+        <a href="#/home"><button type="button" class="btn btn-danger btn-lg"><i class="icon-trash"></i> Delete</button></a>
+    </span>
+</div>

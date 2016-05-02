@@ -1,0 +1,44 @@
+<div class="jumbotron jumbotron-fluid visible" style="background: url('images/jumbotronHome.jpg') no-repeat center center fixed; height:500px; background-size: cover;">
+    <div data-ng-include="'/views/topnav.html'"></div>
+    <div align="center">
+        <div class="hidden-xs">
+            <div style="width: 300px; height: 300px; ">
+                <img src="images/avatar.png" style="height:100%; width:100%; border-radius: 50%">
+            </div>
+        </div>
+        <div class="visible-xs">
+            <div style="width: 200px; height: 200px; ">
+                <img src="images/avatar.png" style="height:100%; width:100%; border-radius: 50%">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div data-ng-repeat="post in posts | limitTo:4" align="center">
+        <a href="#/posts/{{post._id}}">
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="articleContainer">
+                    <img data-ng-src="{{post.image}}" height="200px" width="100%">
+                    <div class="transparent articleDate">
+                        {{post.date}}
+                    </div>
+                    <div class="transparent articleTitle">
+                        {{post.title}}
+                    </div>
+                    <div class="articleContent">
+                        <p class="wrap">{{post.content}}</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+<div class="container">
+    <div align="center">
+        <div>
+            <a href="#/blog">
+                <button type="button" class="btn btn-success btn-lg"><i class="icon-trash"></i> View All</button>
+            </a>
+        </div>
+    </div>
+</div>

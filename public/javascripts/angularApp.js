@@ -8,7 +8,7 @@ app.config([
         $stateProvider
             .state('home', {
                 url: '/home',
-                templateUrl: '/home.html',
+                templateUrl: '/views/home.html',
                 controller: 'MainCtrl',
                 resolve: {
                     postPromise: ['posts', function(posts) {
@@ -18,22 +18,22 @@ app.config([
             })
             .state('about', {
                 url: '/about',
-                templateUrl: '/about.html',
+                templateUrl: '/views/about.html',
                 controller: 'MainCtrl'
             })
             .state('blog', {
                 url: '/blog',
-                templateUrl: '/blog.html',
+                templateUrl: '/views/blog.html',
                 controller: 'MainCtrl'
             })
             .state('contacts', {
                 url: '/contacts',
-                templateUrl: '/contacts.html',
+                templateUrl: '/views/contacts.html',
                 controller: 'MainCtrl'
             })
             .state('posts', {
                 url: '/posts/{id}',
-                templateUrl: '/posts.html',
+                templateUrl: '/views/posts.html',
                 controller: 'PostsCtrl',
                 resolve: {
                     post: ['$stateParams', 'posts', function($stateParams, posts) {

@@ -1,0 +1,60 @@
+<div class="jumbotron jumbotron-fluid visible" style="background: url('images/blog.jpg') no-repeat center center fixed; height:500px; background-size: cover;">
+    <div data-ng-include="'/views/topnav.html'"></div>
+</div>
+<div class="container">
+    <h1 align="center">Blog</h1>
+    <p align="center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <div data-ng-repeat="post in posts" align="center">
+        <a href="#/posts/{{post._id}}">
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="articleContainer">
+                    <img data-ng-src="{{post.image}}" height="200px" width="100%">
+                    <div class="transparent articleDate">
+                        {{post.date}}
+                    </div>
+                    <div class="transparent articleTitle">
+                        {{post.title}}
+                    </div>
+                    <div class="articleContent">
+                        <!-- <pre>{{post.content}}</pre> -->
+                        <p class="wrap">{{post.content}}</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+<div class="container">
+    <div align="center">
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><i class="icon-plus"></i> Add Blog</button>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add a new blog</h4>
+                </div>
+                <div class="modal-body">
+                    <form data-ng-submit="addPost()" style="margin-top:10px;">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Title" data-ng-model="title"></input>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Date" data-ng-model="date"></input>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Image" data-ng-model="image"></input>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Content" data-ng-model="content"></input>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Post</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
