@@ -12,6 +12,7 @@ app.config([
                 controller: 'MainCtrl',
                 resolve: {
                     postPromise: ['posts', function(posts) {
+                        $('html, body').animate({ scrollTop: 0 }, 'fast');
                         return posts.getAll();
                     }]
                 }
@@ -19,17 +20,33 @@ app.config([
             .state('about', {
                 url: '/about',
                 templateUrl: '/views/about.html',
-                controller: 'MainCtrl'
+                controller: 'MainCtrl',
+                resolve: {
+                    postPromise: [function() {
+                        $('html, body').animate({ scrollTop: 0 }, 'fast');
+                    }]
+                }
             })
             .state('blog', {
                 url: '/blog',
                 templateUrl: '/views/blog.html',
-                controller: 'MainCtrl'
+                controller: 'MainCtrl',
+                resolve: {
+                    postPromise: ['posts', function(posts) {
+                        $('html, body').animate({ scrollTop: 0 }, 'fast');
+                        return posts.getAll();
+                    }]
+                }
             })
             .state('contacts', {
                 url: '/contacts',
                 templateUrl: '/views/contacts.html',
-                controller: 'MainCtrl'
+                controller: 'MainCtrl',
+                resolve: {
+                    postPromise: [function() {
+                        $('html, body').animate({ scrollTop: 0 }, 'fast');
+                    }]
+                }
             })
             .state('posts', {
                 url: '/posts/{id}',
@@ -37,6 +54,7 @@ app.config([
                 controller: 'PostsCtrl',
                 resolve: {
                     post: ['$stateParams', 'posts', function($stateParams, posts) {
+                        $('html, body').animate({ scrollTop: 0 }, 'fast');
                         return posts.get($stateParams.id);
                     }]
                 }

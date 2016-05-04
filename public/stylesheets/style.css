@@ -135,3 +135,15 @@ p.wrap {
 
 
 /*Footer Style*/
+
+.fullArticleText {
+    display: block;
+    font-size: 16px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    line-height: 1.42857143;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    overflow: hidden;
+}
+
