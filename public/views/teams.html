@@ -1,0 +1,15 @@
+<div class="jumbotron jumbotron-fluid visible" style="background: url('{{team.crest}}') no-repeat center center fixed; height:500px; background-size: cover;">
+    <div data-ng-include="'/views/topnav.html'"></div>
+</div>
+<div class="container">
+    <div class="page-header">
+        <h3>{{team.title}}</h3>
+        <p>{{team.date}}</p>
+    </div>
+    <div class="fullArticleText">{{team.content}}
+        </>
+        <span data-ng-click="deleteTeam(team)">
+        <a href="#/home"><button type="button" class="btn btn-danger btn-lg"><i class="icon-trash"></i> Delete</button></a>
+    </span>
+    </div>
+</div>

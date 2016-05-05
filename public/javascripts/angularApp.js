@@ -11,9 +11,9 @@ app.config([
                 templateUrl: '/views/home.html',
                 controller: 'MainCtrl',
                 resolve: {
-                    postPromise: ['posts', function(posts) {
+                    teamPromise: ['teams', function(teams) {
                         $('html, body').animate({ scrollTop: 0 }, 'fast');
-                        return posts.getAll();
+                        return teams.getAll();
                     }]
                 }
             })
@@ -22,7 +22,7 @@ app.config([
                 templateUrl: '/views/about.html',
                 controller: 'MainCtrl',
                 resolve: {
-                    postPromise: [function() {
+                    teamPromise: [function() {
                         $('html, body').animate({ scrollTop: 0 }, 'fast');
                     }]
                 }
@@ -32,9 +32,9 @@ app.config([
                 templateUrl: '/views/blog.html',
                 controller: 'MainCtrl',
                 resolve: {
-                    postPromise: ['posts', function(posts) {
+                    teamPromise: ['teams', function(teams) {
                         $('html, body').animate({ scrollTop: 0 }, 'fast');
-                        return posts.getAll();
+                        return teams.getAll();
                     }]
                 }
             })
@@ -43,19 +43,19 @@ app.config([
                 templateUrl: '/views/contacts.html',
                 controller: 'MainCtrl',
                 resolve: {
-                    postPromise: [function() {
+                    teamPromise: [function() {
                         $('html, body').animate({ scrollTop: 0 }, 'fast');
                     }]
                 }
             })
-            .state('posts', {
-                url: '/posts/{id}',
-                templateUrl: '/views/posts.html',
-                controller: 'PostsCtrl',
+            .state('teams', {
+                url: '/teams/{id}',
+                templateUrl: '/views/teams.html',
+                controller: 'TeamsCtrl',
                 resolve: {
-                    post: ['$stateParams', 'posts', function($stateParams, posts) {
+                    team: ['$stateParams', 'teams', function($stateParams, teams) {
                         $('html, body').animate({ scrollTop: 0 }, 'fast');
-                        return posts.get($stateParams.id);
+                        return teams.get($stateParams.id);
                     }]
                 }
             })
@@ -66,71 +66,71 @@ app.config([
 
 // Main controller
 app.controller('MainCtrl', [
-    '$scope', 'posts',
-    function($scope, posts) {
+    '$scope', 'teams',
+    function($scope, teams) {
 
-        $scope.posts = posts.posts;
-        $scope.addPost = function() {
+        $scope.teams = teams.teams;
+        $scope.addTeam = function() {
             if (!$scope.title || $scope.title === '') {
                 return;
             }
-            posts.create({
+            teams.create({
                 title: $scope.title,
                 date: $scope.date,
-                image: $scope.image,
+                crest: $scope.crest,
                 content: $scope.content
             });
             $scope.title = '';
             $scope.date = '';
-            $scope.image = '';
+            $scope.crest = '';
             $scope.content = '';
         };
 
-        $scope.deletePost = function(post) {
-            posts.delete(post);
+        $scope.deleteTeam = function(team) {
+            teams.delete(team);
         };
     }
 ]);
 
-// Post controller
-app.controller('PostsCtrl', [
+// Team controller
+app.controller('TeamsCtrl', [
     '$scope',
     // '$stateParams',
-    'posts',
-    'post',
-    function($scope, posts, post) {
-        // $scope.post = posts.posts[$stateParams.id];
-        $scope.post = post;
+    'teams',
+    'team',
+    function($scope, teams, team) {
+        // $scope.team = teams.teams[$stateParams.id];
+        $scope.team = team;
     }
 ]);
 
-app.factory('posts', ['$http', function($http) {
+app.factory('teams', ['$http', function($http) {
     var o = {
-        posts: []
+        teams: []
     };
 
-    // get all posts
+    // get all teams
     o.getAll = function() {
-        return $http.get('/posts').success(function(data) {
-            angular.copy(data, o.posts);
+        return $http.get('/teams').success(function(data) {
+            angular.copy(data, o.teams);
         });
     };
-    // create new posts
-    o.create = function(post) {
-        return $http.post('/posts', post).success(function(data) {
-            o.posts.push(data);
+    // create new teams
+    o.create = function(team) {
+        return $http.post('/teams', team).success(function(data) {
+            o.teams.push(data);
         });
     };
-    // get single post
+    // get single team
     o.get = function(id) {
-        return $http.get('/posts/' + id).then(function(res) {
+        return $http.get('/teams/' + id).then(function(res) {
             return res.data;
         });
     };
-    // delete single post
-    o.delete = function(post) {
-        return $http.delete('/posts/' + post._id).success(function(data) {
-            angular.copy(data, o.posts);
+    // delete single team
+    o.delete = function(team) {
+        return $http.delete('/teams/' + team._id).success(function(data) {
+            angular.copy(data, o.teams);
         });
     };
 

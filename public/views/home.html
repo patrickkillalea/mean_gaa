@@ -14,19 +14,19 @@
     </div>
 </div>
 <div class="container">
-    <div data-ng-repeat="post in posts | limitTo:4" align="center">
-        <a href="#/posts/{{post._id}}">
+    <div data-ng-repeat="team in teams | limitTo:4" align="center">
+        <a href="#/teams/{{team._id}}">
             <div class="col-md-6 col-sm-12 col-xs-12">
                 <div class="articleContainer">
-                    <img data-ng-src="{{post.image}}" height="200px" width="100%">
+                    <img data-ng-src="{{team.crest}}" height="200px" width="100%">
                     <div class="transparent articleDate">
-                        {{post.date}}
+                        {{team.date}}
                     </div>
                     <div class="transparent articleTitle">
-                        {{post.title}}
+                        {{team.title}}
                     </div>
                     <div class="articleContent">
-                        <p class="wrap">{{post.content}}</p>
+                        <p class="wrap">{{team.content}}</p>
                     </div>
                 </div>
             </div>

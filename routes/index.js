@@ -7,64 +7,62 @@ router.get('/', function(req, res) {
 });
 
 var mongoose = require('mongoose');
-var Post = mongoose.model('Post'); // load post model
+var Team = mongoose.model('Team'); // load team model
 
 // ----------- REST Routes --------------
-// Get all posts
-router.get('/posts', function(req, res, next) {
-    Post.find(function(err, posts) {
+// Get all teams
+router.get('/teams', function(req, res, next) {
+    Team.find(function(err, teams) {
         if (err) {
             return next(err); }
 
-        res.json(posts);
+        res.json(teams);
     });
 });
-// Create new post
-router.post('/posts', function(req, res, next) {
-    var post = new Post(req.body);
-
-    post.save(function(err, post) {
+// Create new team
+router.post('/teams', function(req, res, next) {
+    var team = new Team(req.body);
+    team.save(function(err, team) {
         if (err) {
             return next(err); }
-
-        res.json(post);
+        res.json(team);
     });
 });
-// Map logic to route parameter 'post'
-router.param('post', function(req, res, next, id) {
-    var query = Post.findById(id);
+// Map logic to route parameter 'team'
+router.param('team', function(req, res, next, id) {
+    var query = Team.findById(id);
 
-    query.exec(function(err, post) {
+    query.exec(function(err, team) {
         if (err) {
             return next(err); }
-        if (!post) {
-            return next(new Error("can't find post")); }
+        if (!team) {
+            return next(new Error("can't find team")); }
 
-        req.post = post;
+        req.team = team;
         return next();
     });
 });
-// Get single post
-router.get('/posts/:post', function(req, res) {
-    req.post.populate(function (err, post) {
-		res.json(post);
+// Get single team
+router.get('/teams/:team', function(req, res) {
+    req.team.populate(function (err, team) {
+		res.json(team);
 	});
 });
-// Delete post
-router.delete('/posts/:post', function(req, res) {
+// Delete team
+router.delete('/teams/:team', function(req, res) {
     
-    Post.remove({
-        _id: req.params.post
-    }, function(err, post) {
+    Team.remove({
+        _id: req.params.team
+    }, function(err, team) {
         if (err) {
             return next(err); }
 
-        // get and return all the posts after you delete one
-        Post.find(function(err, posts) {
+        // get and return all the teams after you delete one
+        Team.find(function(err, teams) {
             if (err) {
                 return next(err); }
 
-            res.json(posts);
+            res.json(teams);
         });
     });
 });

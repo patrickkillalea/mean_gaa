@@ -1,11 +1,11 @@
 var mongoose = require('mongoose');
 
-var PostSchema = new mongoose.Schema({
+var TeamSchema = new mongoose.Schema({
     title: String,
     content: String,
     date: String,
     link: String,
-    image: String
+    crest: String
 });
 
-mongoose.model('Post', PostSchema);
+mongoose.model('Team', TeamSchema);

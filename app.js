@@ -6,10 +6,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
-//mongoose.connect('mongodb://patrickkillalea:ilwp2000@ds021691.mlab.com:21691/mediumdb');
-mongoose.connect('mongodb://localhost/gaadb');
+mongoose.connect('mongodb://patrickkillalea:ilwp2000@ds011379.mlab.com:11379/footballmanager');
+//mongoose.connect('mongodb://localhost/gaadb');
 
-require('./models/Posts');
+require('./models/Teams');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');

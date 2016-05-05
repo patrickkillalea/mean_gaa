@@ -4,20 +4,20 @@
 <div class="container">
     <h1 align="center">Blog</h1>
     <p align="center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    <div data-ng-repeat="post in posts" align="center">
-        <a href="#/posts/{{post._id}}">
+    <div data-ng-repeat="team in teams" align="center">
+        <a href="#/teams/{{team._id}}">
             <div class="col-md-6 col-sm-12 col-xs-12">
                 <div class="articleContainer">
-                    <img data-ng-src="{{post.image}}" height="200px" width="100%">
+                    <img data-ng-src="{{team.crest}}" height="200px" width="100%">
                     <div class="transparent articleDate">
-                        {{post.date}}
+                        {{team.date}}
                     </div>
                     <div class="transparent articleTitle">
-                        {{post.title}}
+                        {{team.title}}
                     </div>
                     <div class="articleContent">
-                        <!-- <pre>{{post.content}}</pre> -->
-                        <p class="wrap">{{post.content}}</p>
+                        <!-- <pre>{{team.content}}</pre> -->
+                        <p class="wrap">{{team.content}}</p>
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                     <h4 class="modal-title">Add a new blog</h4>
                 </div>
                 <div class="modal-body">
-                    <form data-ng-submit="addPost()" style="margin-top:10px;">
+                    <form data-ng-submit="addTeam()" style="margin-top:10px;">
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Title" data-ng-model="title"></input>
                         </div>
@@ -46,12 +46,12 @@
                             <input type="text" class="form-control" placeholder="Date" data-ng-model="date"></input>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Image" data-ng-model="image"></input>
+                            <input type="text" class="form-control" placeholder="Crest" data-ng-model="crest"></input>
                         </div>
                         <div class="form-group">
                             <textarea type="text" class="form-control" placeholder="Content" data-ng-model="content"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Post</button>
+                        <button type="submit" class="btn btn-primary">Add</button>
                     </form>
                 </div>
             </div>
