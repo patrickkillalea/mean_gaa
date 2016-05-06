@@ -8,7 +8,7 @@ var TeamSchema = new mongoose.Schema({
     capacity: String,
     town: String,
     crest: String,
-    players: { type: mongoose.Schema.Types.ObjectId, ref: 'Player'}  // The ref option is what tells Mongoose which model to use
+    players: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Player'}]  // The ref option is what tells Mongoose which model to use
     //,
     // player: [{
     //     name: String,
