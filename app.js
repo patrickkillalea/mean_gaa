@@ -10,6 +10,7 @@ mongoose.connect('mongodb://patrickkillalea:ilwp2000@ds011379.mlab.com:11379/foo
 //mongoose.connect('mongodb://localhost/gaadb');
 
 require('./models/Teams');
+require('./models/Players');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');

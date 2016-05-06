@@ -76,14 +76,14 @@ app.controller('MainCtrl', [
             }
             teams.create({
                 title: $scope.title,
-                date: $scope.date,
+                league: $scope.league,
                 crest: $scope.crest,
-                content: $scope.content
+                ground: $scope.ground
             });
             $scope.title = '';
-            $scope.date = '';
+            $scope.league = '';
             $scope.crest = '';
-            $scope.content = '';
+            $scope.ground = '';
         };
 
         $scope.deleteTeam = function(team) {
@@ -95,12 +95,23 @@ app.controller('MainCtrl', [
 // Team controller
 app.controller('TeamsCtrl', [
     '$scope',
-    // '$stateParams',
     'teams',
     'team',
     function($scope, teams, team) {
-        // $scope.team = teams.teams[$stateParams.id];
         $scope.team = team;
+        $scope.addPlayer = function() {
+            if ($scope.body === '') {
+                return; }
+            teams.addPlayer(team._id, {
+                body: $scope.body,
+                dob: $scope.dob,
+                // weight: 'weight',
+            }).success(function(player) {
+                $scope.post.players.push(player);
+            });
+            $scope.body = '';
+        };
+
     }
 ]);
 
@@ -132,6 +143,10 @@ app.factory('teams', ['$http', function($http) {
         return $http.delete('/teams/' + team._id).success(function(data) {
             angular.copy(data, o.teams);
         });
+    };
+
+    o.addPlayer = function(id, player) {
+        return $http.post('/teams/' + id + '/players', player);
     };
 
     return o;
