@@ -104,12 +104,30 @@ app.controller('TeamsCtrl', [
                 return; }
             teams.addPlayer(team._id, {
                 body: $scope.body,
+                firstName: $scope.firstName,
+                lastName: $scope.lastName,
                 dob: $scope.dob,
-                // weight: 'weight',
+                weight: $scope.weight,
+                height: $scope.height,
+                image: $scope.image,
+                birthCountry: $scope.birthCountry,
+                birthCounty: $scope.birthCounty,
+                position: $scope.position,
+                foot: $scope.foot,
             }).success(function(player) {
                 $scope.team.players.push(player);
             });
             $scope.body = '';
+            $scope.firstName = '';
+            $scope.lastName = '';
+            $scope.dob = '';
+            $scope.weight = '';
+            $scope.height = '';
+            $scope.image = '';
+            $scope.birthCountry = '';
+            $scope.birthCounty = '';
+            $scope.position = '';
+            $scope.foot = '';
         };
 
     }

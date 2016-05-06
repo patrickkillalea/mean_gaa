@@ -12,26 +12,56 @@
             <a href="#/home"><button type="button" class="btn btn-danger btn-lg"><i class="icon-trash"></i> Delete</button></a>
         </span>
     </div>
-    <!-- Show players -->
-    <!--     <span>
-        <a href="#/teams/{{team._id}}"> ->players({{team.players.length}})</a>
-    </span> -->
+    
     <!-- Show all players -->
     <div ng-repeat="player in team.players">
-        {{player.body}} {{player.dob}}
-        <!-- {{player.weight}} -->
+        <div class="col-md-3 col-sm-4 col-xs-6" style="background-color: lightblue">
+            <div>{{player.body}}</div>
+            <div>{{player.firstName}}</div>
+            <div>{{player.lastName}}</div>
+            <div>{{player.dob}}</div>
+            <div>{{player.weight}}</div>
+            <div>{{player.height}}</div>
+            <div><img ng-src={{player.image}}/></div>
+            <div>{{player.birthCountry}}</div>
+            <div>{{player.birthCounty}}</div>
+            <div>{{player.position}}</div>
+            <div>{{player.foot}}</div>
+        </div>
     </div>
-    <!-- New player form -->
-    <form ng-submit="addPlayer()" style="margin-top:30px">
-        <h3>Add a new player</h3>
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="Player" ng-model="body"></input>
+    <div class="container">
+        <div align="center">
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#playerModal"><i class="icon-plus"></i> Add Player</button>
         </div>
-        <div class="form-group">
-            <!-- <input type="text" class="form-control" placeholder="Name" ng-model="name"></input> -->
-            <input type="text" class="form-control" placeholder="DOB" ng-model="dob"></input>
+        <!-- Modal -->
+        <div class="modal fade" id="playerModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Add a new player</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form data-ng-submit="addPlayer()" style="margin-top:10px;">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Player" ng-model="body"></input>
+                                <input type="text" class="form-control" placeholder="firstName" ng-model="firstName"></input>
+                                <input type="text" class="form-control" placeholder="lastName" ng-model="lastName"></input>
+                                <input type="text" class="form-control" placeholder="DOB" ng-model="dob"></input>
+                                <input type="text" class="form-control" placeholder="weight" ng-model="weight"></input>
+                                <input type="text" class="form-control" placeholder="height" ng-model="height"></input>
+                                <input type="text" class="form-control" placeholder="image" ng-model="image"></input>
+                                <input type="text" class="form-control" placeholder="birthCountry" ng-model="birthCountry"></input>
+                                <input type="text" class="form-control" placeholder="birthCounty" ng-model="birthCounty"></input>
+                                <input type="text" class="form-control" placeholder="position" ng-model="position"></input>
+                                <input type="text" class="form-control" placeholder="foot" ng-model="foot"></input>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Add</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- <input type="text" class="form-control" placeholder="Weight" ng-model="weight"></input> -->
-        <button type="submit" class="btn btn-primary">Post</button>
-    </form>
+    </div>
 </div>
