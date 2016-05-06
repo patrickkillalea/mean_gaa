@@ -9,13 +9,13 @@
     <div class="fullArticleText">{{team.ground}}
         </>
         <span data-ng-click="deleteTeam(team)">
-        <a href="#/home"><button type="button" class="btn btn-danger btn-lg"><i class="icon-trash"></i> Delete</button></a>
-    </span>
+            <a href="#/home"><button type="button" class="btn btn-danger btn-lg"><i class="icon-trash"></i> Delete</button></a>
+        </span>
     </div>
     <!-- Show players -->
-<!--     <span>
+    <!--     <span>
         <a href="#/teams/{{team._id}}"> ->players({{team.players.length}})</a>
-            </span> -->
+    </span> -->
     <!-- Show all players -->
     <div ng-repeat="player in team.players">
         {{player.body}} {{player.dob}}
@@ -25,11 +25,13 @@
     <form ng-submit="addPlayer()" style="margin-top:30px">
         <h3>Add a new player</h3>
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Comment" ng-model="body"></input>
+            <input type="text" class="form-control" placeholder="Player" ng-model="body"></input>
+        </div>
+        <div class="form-group">
             <!-- <input type="text" class="form-control" placeholder="Name" ng-model="name"></input> -->
             <input type="text" class="form-control" placeholder="DOB" ng-model="dob"></input>
-            <!-- <input type="text" class="form-control" placeholder="Weight" ng-model="weight"></input> -->
         </div>
+        <!-- <input type="text" class="form-control" placeholder="Weight" ng-model="weight"></input> -->
         <button type="submit" class="btn btn-primary">Post</button>
     </form>
 </div>

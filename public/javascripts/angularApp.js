@@ -107,7 +107,7 @@ app.controller('TeamsCtrl', [
                 dob: $scope.dob,
                 // weight: 'weight',
             }).success(function(player) {
-                $scope.post.players.push(player);
+                $scope.team.players.push(player);
             });
             $scope.body = '';
         };
