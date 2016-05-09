@@ -30,7 +30,7 @@ app.config([
             .state('blog', {
                 url: '/blog',
                 templateUrl: '/views/blog.html',
-                controller: 'MainCtrl',
+                controller: 'TeamsCtrl',
                 resolve: {
                     teamPromise: ['teams', function(teams) {
                         $('html, body').animate({ scrollTop: 0 }, 'fast');
@@ -38,13 +38,14 @@ app.config([
                     }]
                 }
             })
-            .state('contacts', {
-                url: '/contacts',
-                templateUrl: '/views/contacts.html',
+            .state('players', {
+                url: '/players/{id}',
+                templateUrl: '/views/players.html',
                 controller: 'MainCtrl',
                 resolve: {
-                    teamPromise: [function() {
+                    player: ['$stateParams', 'players', function($stateParams, players) {
                         $('html, body').animate({ scrollTop: 0 }, 'fast');
+                        return players.get($stateParams.id);
                     }]
                 }
             })
@@ -156,6 +157,12 @@ app.factory('teams', ['$http', function($http) {
             return res.data;
         });
     };
+    // get single player
+    // o.get = function(id) {
+    //     return $http.get('/teams/' + id + '/player').then(function(res) {
+    //         return res.data;
+    //     });
+    // };
     // delete single team
     o.delete = function(team) {
         return $http.delete('/teams/' + team._id).success(function(data) {

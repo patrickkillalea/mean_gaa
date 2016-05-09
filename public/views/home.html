@@ -1,18 +1,3 @@
-<div class="jumbotron jumbotron-fluid visible" style="background: url('images/jumbotronHome.jpg') no-repeat center center fixed; height:500px; background-size: cover;">
-    <div data-ng-include="'/views/topnav.html'"></div>
-    <div align="center">
-        <div class="hidden-xs">
-            <div style="width: 300px; height: 300px; ">
-                <img src="images/avatar.png" style="height:100%; width:100%; border-radius: 50%">
-            </div>
-        </div>
-        <div class="visible-xs">
-            <div style="width: 200px; height: 200px; ">
-                <img src="images/avatar.png" style="height:100%; width:100%; border-radius: 50%">
-            </div>
-        </div>
-    </div>
-</div>
 <div class="container">
     <div data-ng-repeat="team in teams | limitTo:4" align="center">
         <a href="#/teams/{{team._id}}">

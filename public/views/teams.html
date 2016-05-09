@@ -1,38 +1,33 @@
-<div class="jumbotron jumbotron-fluid visible" style="background: url('{{team.crest}}') no-repeat center center fixed; height:500px; background-size: cover;">
-    <div data-ng-include="'/views/topnav.html'"></div>
-</div>
 <div class="container">
     <div class="page-header">
         <h3>{{team.title}}</h3>
+        <div style="width:200px;height:200px;border-radius: 50%;">
+            <img ng-src={{team.crest}} height="100%" width="100%" />
+        </div>
         <p>{{team.league}}</p>
     </div>
-    <div class="fullArticleText">{{team.ground}}
-        </>
-        <span data-ng-click="deleteTeam(team)">
-            <a href="#/home"><button type="button" class="btn btn-danger btn-lg"><i class="icon-trash"></i> Delete</button></a>
-        </span>
-    </div>
+    <div class="fullArticleText">{{team.ground}}</div>
     
     <!-- Show all players -->
     <div ng-repeat="player in team.players">
-        <div class="col-md-3 col-sm-4 col-xs-6" style="background-color: lightblue">
-            <div>{{player.body}}</div>
-            <div>{{player.firstName}}</div>
-            <div>{{player.lastName}}</div>
-            <div>{{player.dob}}</div>
-            <div>{{player.weight}}</div>
-            <div>{{player.height}}</div>
-            <div><img ng-src={{player.image}}/></div>
-            <div>{{player.birthCountry}}</div>
-            <div>{{player.birthCounty}}</div>
-            <div>{{player.position}}</div>
-            <div>{{player.foot}}</div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-md-12" style="background-color: lightblue;height: 60px; margin: 5px;">
+                <!-- <div>{{player.body}}</div> -->
+                <div style="width:50px;height:60px;border-radius: 50%; position: absolute;left: 0px;"><img ng-src={{player.image}} height="100%" width="100%" /></div>
+                <div style="position: absolute; right: 30px;">{{player.position}}</div>
+                <!-- <div>{{player.dob}}</div>
+                <div>{{player.weight}}</div>
+                <div>{{player.height}}</div> -->
+                
+                <!--  <div>{{player.birthCountry}}</div>
+                <div>{{player.birthCounty}}</div> -->
+                <div style="position: absolute;left:60px;">{{player.firstName}} {{player.lastName}}</div>
+                <!-- <div>{{player.foot}}</div> -->
+                <div style="position: absolute; right: 10px;">+</div>
+            </div>
         </div>
     </div>
     <div class="container">
-        <div align="center">
-            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#playerModal"><i class="icon-plus"></i> Add Player</button>
-        </div>
         <!-- Modal -->
         <div class="modal fade" id="playerModal" role="dialog">
             <div class="modal-dialog">
@@ -63,5 +58,13 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div align="center">
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#playerModal"><i class="icon-plus"></i> Add Player</button>
+    </div>
+    <div align="center">
+        <span data-ng-click="deleteTeam(team)">
+            <a href="#/home"><button type="button" class="btn btn-danger btn-lg"><i class="icon-trash"></i> Delete Team</button></a>
+        </span>
     </div>
 </div>

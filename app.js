@@ -6,8 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://patrickkillalea:ilwp2000@ds011379.mlab.com:11379/footballmanager');
-//mongoose.connect('mongodb://localhost/gaadb');
+//mongoose.connect('mongodb://patrickkillalea:ilwp2000@ds011379.mlab.com:11379/footballmanager');
+mongoose.connect('mongodb://localhost/gaadb');
 
 require('./models/Teams');
 require('./models/Players');

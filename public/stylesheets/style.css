@@ -47,6 +47,40 @@ li {
     font-size: 24px;
 }
 
+#mobile-menu ul {
+    position: relative;
+    left: 15%;
+    width: 70%;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+#mobile-menu li {
+    display: inline-block;
+    margin: 8px;
+}
+
+#mobile-menu li a {
+    border-radius: 3px;
+    padding: 5px;
+    border: 1px solid transparent;
+    text-decoration: none;
+    font-size: 14px;
+    color: #fff;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+#mobile-menu li a:hover {
+    border-color: #fff;
+}
+
+#mobile-menu li a i {
+    margin-right: 5px;
+    font-size: 24px;
+}
+
 a:link {
     color: black;
 }
